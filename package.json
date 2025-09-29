@@ -13,6 +13,7 @@
     "build-app": "electron-builder"
   },
   "dependencies": {
+    "axios": "^1.12.2",
     "vue": "^3.5.21"
   },
   "devDependencies": {
@@ -30,7 +31,7 @@
     "appId": "com.huy.sub-translator",
     "productName": "SUB-Translator",
     "directories": {
-      "buildResources": "assets"
+      "output": "/Volumes/Elements/youtube/build2"
     },
     "files": [
       "dist/**",
@@ -45,10 +46,6 @@
     },
     "linux": {
       "target": "AppImage"
-    },
-    "directories": {
-      "output": "/Volumes/Elements/youtube/build2"
     }
   }
- 
 }

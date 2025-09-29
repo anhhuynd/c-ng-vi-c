@@ -25,43 +25,25 @@ export default {
   data() {
     return {
       currentTime: '',
-      isDark: false,
-      timeInterval: null
+      isDark: false
     }
   },
   mounted() {
-    this.updateTime();
-    this.timeInterval = setInterval(this.updateTime, 1000);
-    
-    // Check for saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      this.isDark = true;
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
-  },
-  beforeDestroy() {
-    if (this.timeInterval) {
-      clearInterval(this.timeInterval);
-    }
+    this.updateTime()
+    setInterval(this.updateTime, 1000)
   },
   methods: {
     updateTime() {
-      const now = new Date();
-      this.currentTime = now.toLocaleTimeString('vi-VN', { 
-        hour: '2-digit', 
-        minute: '2-digit' 
-      });
+      const now = new Date()
+      this.currentTime = now.toLocaleTimeString('vi-VN', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      })
     },
     toggleTheme() {
-      this.isDark = !this.isDark;
-      if (this.isDark) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'light');
-      }
+      this.isDark = !this.isDark
+      document.body.classList.toggle('dark-theme', this.isDark)
     }
   }
 }
