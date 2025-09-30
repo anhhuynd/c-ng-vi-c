@@ -1,5 +1,5 @@
 {
-  "name": "Sub-Translator-electron",
+  "name": "APP_TASK_LIST",
   "main": "electron.cjs",
   "private": true,
   "version": "0.0.0",
@@ -29,9 +29,9 @@
   "build": {
     "asar": false,
     "appId": "com.huy.sub-translator",
-    "productName": "SUB-Translator",
+    "productName": "APP_TASK_LIST",
     "directories": {
-      "output": "/Volumes/Elements/youtube/build2"
+      "output": "/Volumes/Elements/youtube/build3"
     },
     "files": [
       "dist/**",

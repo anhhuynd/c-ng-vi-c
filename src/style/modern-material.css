@@ -374,11 +374,34 @@ body {
   font-size: 16px;
   margin-bottom: 4px;
   color: #212529;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .task-title.completed {
   text-decoration: line-through;
   color: #6c757d;
+}
+
+.expand-btn {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.expand-btn:hover {
+  background: #f8f9fa;
+  color: #495057;
+}
+
+.expand-btn.expanded {
+  transform: rotate(0deg);
 }
 
 .task-description {
@@ -391,6 +414,7 @@ body {
   display: flex;
   gap: 12px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .task-time {
@@ -422,6 +446,14 @@ body {
 .task-priority.low {
   background: #d1ecf1;
   color: #0c5460;
+}
+
+.subtask-count {
+  font-size: 12px;
+  color: #6c757d;
+  background: #f8f9fa;
+  padding: 2px 6px;
+  border-radius: 10px;
 }
 
 .task-controls {
@@ -647,6 +679,33 @@ body {
   justify-content: space-between;
   font-size: 12px;
   color: #6c757d;
+  margin-bottom: 12px;
+}
+
+.channel-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-channel-import {
+  padding: 8px 16px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  width: 100%;
+}
+
+.btn-channel-import:hover:not(:disabled) {
+  background: #218838;
+}
+
+.btn-channel-import:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
 }
 
 /* Videos List */
@@ -669,6 +728,15 @@ body {
 
 .video-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.video-card.low-performance {
+  border-left: 4px solid #ffc107;
+  background: #fffbf0;
+}
+
+.video-card.shorts {
+  border-left: 4px solid #ff0000;
 }
 
 .video-thumbnail {
@@ -706,6 +774,33 @@ body {
   font-size: 11px;
 }
 
+.short-badge {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: #ff0000;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.performance-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.performance-badge.low {
+  background: #ffc107;
+  color: #856404;
+}
+
 .video-info {
   flex: 1;
 }
@@ -739,6 +834,15 @@ body {
 .video-date {
   font-size: 12px;
   color: #6c757d;
+}
+
+.performance-warning {
+  font-size: 12px;
+  color: #856404;
+  background: #fff3cd;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: 8px;
 }
 
 .growth-badge {
@@ -904,6 +1008,11 @@ body {
   transform: translateY(-2px);
 }
 
+.stat-card.warning {
+  border-color: #ffc107;
+  background: #fffbf0;
+}
+
 .stat-icon {
   font-size: 32px;
   margin-bottom: 12px;
@@ -1004,6 +1113,10 @@ body {
   color: #212529;
 }
 
+.low-performance-row {
+  background: #fffbf0;
+}
+
 .video-cell {
   min-width: 250px;
 }
@@ -1065,6 +1178,42 @@ body {
 .growth-badge-table.neutral {
   background: #e2e3e5;
   color: #6c757d;
+}
+
+.performance-status {
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.performance-status.good {
+  background: #d4edda;
+  color: #155724;
+}
+
+.performance-status.low {
+  background: #fff3cd;
+  color: #856404;
+}
+
+/* Type Badges */
+.type-badge {
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.type-badge.short {
+  background: #ff0000;
+  color: white;
+}
+
+.type-badge.video {
+  background: #007bff;
+  color: white;
 }
 
 /* Pagination */
@@ -1149,6 +1298,17 @@ body {
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
+.modal-note,
+.api-note {
+  font-size: 13px;
+  color: #6c757d;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  border-left: 3px solid #007bff;
+}
+
 .modal-actions {
   display: flex;
   gap: 12px;
@@ -1224,6 +1384,7 @@ body {
   transform: translateX(100%);
   opacity: 0;
   transition: all 0.3s ease;
+  max-width: 400px;
 }
 
 .toast-show {
